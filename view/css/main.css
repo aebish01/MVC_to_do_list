@@ -1,0 +1,34 @@
+h1 {
+    color: darkblue;
+    font-size: 40px;
+    margin-bottom: 0%;
+}
+
+.listItems {
+    background-color: bisque;
+    color: blue;
+    font-size: 20px;
+    padding-left: 10px;
+    border: 2px solid black;
+    border-radius: 10px 10px 10px;
+    margin-bottom: 0%;
+    padding-bottom: 0%;
+}
+.listItems button {
+    margin-left: 75%;
+    margin-top: 0%;
+    border: none;
+    background-color: bisque;
+    color: red;
+    font-size: 20px;
+}
+.listItems p {
+    margin: 0%;
+}
+.bold {
+    margin-bottom: 0%;
+    padding-top: 10px;
+    text-decoration: underline;
+    font-weight: bold;
+    font-size: 25px;
+}
