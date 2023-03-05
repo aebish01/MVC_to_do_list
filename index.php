@@ -24,18 +24,16 @@ switch ($action) {
         break;
     case "addCategory":
         addCategory($catName);
-        header('http://localhost/MVC_todo_list/?action=displayCategory');
+        header('http://localhost/MVC_todo_list/');
     case "deleteCategory":
         deleteCategory($catID);
         header('http://localhost/MVC_todo_list/?action=displayCategory');
     case "deleteItem":
         deleteItem($id);
         header('http://localhost/MVC_todo_list/');
-        break;
     case "displayCategory":
         $categories = getCategories();
-        include('/xampp/htdocs/MVC_todo_list/view/categoriesList.php');
-        break;
+        header('http://localhost/MVC_todo_list/?action=displayCategory');
     default:
         $items = displayItem();
         $categories = getCategories();
