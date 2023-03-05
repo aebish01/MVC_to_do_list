@@ -2,10 +2,13 @@
 
 require('model/database.php');
 require('model/todo.php');
+require('model/categories.php');
 
 $id = filter_input(INPUT_POST, 'itemNum', FILTER_VALIDATE_INT);
 $title = filter_input(INPUT_POST, 'title', FILTER_UNSAFE_RAW);
 $description = filter_input(INPUT_POST, 'description', FILTER_UNSAFE_RAW);
+$catID = filter_input(INPUT_POST, 'categoryId', FILTER_VALIDATE_INT);
+$catName = filter_input(INPUT_POST, 'categoryName', FILTER_UNSAFE_RAW);
 
 $action = filter_input(INPUT_POST, 'action', FILTER_UNSAFE_RAW);
 if (!$action) {
@@ -21,8 +24,21 @@ switch ($action) {
     case "deleteItem":
         deleteItem($id);
         header('http://localhost/MVC_todo_list');
+    case "deleteCategory":
+        deleteCategory($catID);
+        header('http://localhost/MVC_todo_list/?action=displayCategory');
+    case "displayCategory":
+        $categories = getCategories();
+        include('/xampp/htdocs/MVC_todo_list/view/categoriesList.php');
+        break;
+    case "addCategory":
+        addCategory($catName);
+        header('http://localhost/MVC_todo_list/?action=displayCategory');
+        break;
     default:
         $items = displayItem();
+        $categories = getCategories();
+        //$category_name = getCategoryName($catID);
         include('/xampp/htdocs/MVC_todo_list/view/itemList.php');
 }
 
