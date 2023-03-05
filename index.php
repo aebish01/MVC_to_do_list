@@ -19,21 +19,22 @@ if (!$action) {
 }
 switch ($action) { 
     case "addItem":
-        addItem($title, $description);
+        addItem($title, $catID, $description);
         header('http://localhost/MVC_todo_list');
-    case "deleteItem":
-        deleteItem($id);
-        header('http://localhost/MVC_todo_list');
-    case "deleteCategory":
-        deleteCategory($catID);
-        header('http://localhost/MVC_todo_list/?action=displayCategory');
-    case "displayCategory":
-        $categories = getCategories();
-        include('/xampp/htdocs/MVC_todo_list/view/categoriesList.php');
         break;
     case "addCategory":
         addCategory($catName);
         header('http://localhost/MVC_todo_list/?action=displayCategory');
+    case "deleteCategory":
+        deleteCategory($catID);
+        header('http://localhost/MVC_todo_list/?action=displayCategory');
+    case "deleteItem":
+        deleteItem($id);
+        header('http://localhost/MVC_todo_list/');
+        break;
+    case "displayCategory":
+        $categories = getCategories();
+        include('/xampp/htdocs/MVC_todo_list/view/categoriesList.php');
         break;
     default:
         $items = displayItem();

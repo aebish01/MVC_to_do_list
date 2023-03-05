@@ -19,11 +19,12 @@ function deleteItem($itemNum) {
     $statement->closeCursor();    
 }
 
-function addItem($title, $description) {
+function addItem($title, $catID, $description) {
     global $db;
-    $query = 'INSERT INTO todoitems ( Title, Description ) VALUE (:title, :description)';
+    $query = 'INSERT INTO todoitems ( Title, categoryID, Description ) VALUE (:title, :categoryId, :description)';
     $statement = $db->prepare($query);
     $statement->bindValue(':title', $title);
+    $statement->bindValue(':categoryId', $catID);
     $statement->bindValue(':description', $description);
     $statement->execute();
     $statement->closeCursor();

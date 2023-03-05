@@ -25,9 +25,10 @@
     <form action="." method="POST" id="add_form" class="add_form">
         <input type="hidden" name="action" value="addItem">
         <div class="add_inputs">
-            <label>Title:</label>
+            <label>Title: &emsp; &emsp; &nbsp;</label>
             <input type="text" name="title" maxlength="20" placeholder="Title" required>
-            <label>Category:</label>
+           <br>
+            <label>Category: &ensp; &nbsp;</label>
             <select name="categoryId" required>
                 <option value="">Please select</option>
                 <?php foreach ($categories as $category) : ?>
@@ -36,9 +37,11 @@
                     </option>
                 <?php endforeach; ?>
             </select>
-            <label>Descritpion:</label>
+            <br>
+            <label>Descritpion: &nbsp;</label>
             <input type="text" name="description" maxlength="50" placeholder="Description" required>
         </div>
+        <br>
         <div class="addButton">
             <button class="add-button">Add</button>
         </div>
